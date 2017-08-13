@@ -8,12 +8,13 @@
 
 import Foundation
 
-class twitterAPI {
+class twitterAPIQuery {
     
-    let bearerTokenCredentials = "Ou6nKK5jAYErdtHFr1esY5gZF:Cefy7q0H1fvucmaWoro7yZVj2wLjW2Am9JvQCtWzR02Z39l6WE"
+    let bearerTokenCredentials: String
+    let authToken: String
     
-    init () {
-
+    init (credendtials: String) {
+        self.bearerTokenCredentials = "Ou6nKK5jAYErdtHFr1esY5gZF:Cefy7q0H1fvucmaWoro7yZVj2wLjW2Am9JvQCtWzR02Z39l6WE"
     }
     
     func getAuthToken() {
@@ -35,10 +36,15 @@ class twitterAPI {
                 let JSONdata = try? JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
                 let token = JSONdata!["access_token"]! as! String
                 print(token)
+                self.setAuthToken(token: token)
                 //getTweets(token: token, hashtag: "#Denver")
             }
         })
         authTask.resume()
+    }
+    
+    func setAuthToken (token: String) {
+        let authToken = token
     }
     
     func getTweets (token: String, hashtag: String){

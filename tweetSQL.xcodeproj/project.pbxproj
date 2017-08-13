@@ -11,7 +11,7 @@
 		7F497C111F3FF60B002A152C /* tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C101F3FF60B002A152C /* tweet.swift */; };
 		7F497C131F3FF67E002A152C /* twitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C121F3FF67E002A152C /* twitterUser.swift */; };
 		7F497C151F3FF6AB002A152C /* twitterSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C141F3FF6AB002A152C /* twitterSearch.swift */; };
-		7F497C171F3FF8D1002A152C /* twitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C161F3FF8D1002A152C /* twitterAPI.swift */; };
+		7F497C171F3FF8D1002A152C /* twitterAPIQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C161F3FF8D1002A152C /* twitterAPIQuery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +32,7 @@
 		7F497C101F3FF60B002A152C /* tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tweet.swift; sourceTree = "<group>"; };
 		7F497C121F3FF67E002A152C /* twitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twitterUser.swift; sourceTree = "<group>"; };
 		7F497C141F3FF6AB002A152C /* twitterSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twitterSearch.swift; sourceTree = "<group>"; };
-		7F497C161F3FF8D1002A152C /* twitterAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twitterAPI.swift; sourceTree = "<group>"; };
+		7F497C161F3FF8D1002A152C /* twitterAPIQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twitterAPIQuery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 				7F497C101F3FF60B002A152C /* tweet.swift */,
 				7F497C121F3FF67E002A152C /* twitterUser.swift */,
 				7F497C141F3FF6AB002A152C /* twitterSearch.swift */,
-				7F497C161F3FF8D1002A152C /* twitterAPI.swift */,
+				7F497C161F3FF8D1002A152C /* twitterAPIQuery.swift */,
 			);
 			path = tweetSQL;
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 				7F497C131F3FF67E002A152C /* twitterUser.swift in Sources */,
 				7F497C0A1F3FF5E2002A152C /* main.swift in Sources */,
 				7F497C111F3FF60B002A152C /* tweet.swift in Sources */,
-				7F497C171F3FF8D1002A152C /* twitterAPI.swift in Sources */,
+				7F497C171F3FF8D1002A152C /* twitterAPIQuery.swift in Sources */,
 				7F497C151F3FF6AB002A152C /* twitterSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +268,7 @@
 				7F497C0F1F3FF5E2002A152C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
