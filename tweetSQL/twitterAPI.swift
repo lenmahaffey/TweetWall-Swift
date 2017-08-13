@@ -26,7 +26,7 @@ class twitterAPI {
         authRequest.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
         let authBody = "grant_type=client_credentials"
         authRequest.httpBody = authBody.data(using: .utf8)
-        let authSession = URLSession(configuration: URLSessionConfiguration.default)
+        let authSession = URLSession(configuration: URLSessionConfiguration.default)
         let authTask = authSession.dataTask(with: authRequest, completionHandler:
         {(data, response, error) in
             if let error = error {
