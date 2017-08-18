@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7F497C0A1F3FF5E2002A152C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C091F3FF5E2002A152C /* main.swift */; };
-		7F497C111F3FF60B002A152C /* tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C101F3FF60B002A152C /* tweet.swift */; };
-		7F497C131F3FF67E002A152C /* twitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C121F3FF67E002A152C /* twitterUser.swift */; };
-		7F497C151F3FF6AB002A152C /* twitterSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C141F3FF6AB002A152C /* twitterSearch.swift */; };
 		7F497C171F3FF8D1002A152C /* twitterAPIQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C161F3FF8D1002A152C /* twitterAPIQuery.swift */; };
 		7F961C411F452B4000A65D2C /* database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F961C401F452B4000A65D2C /* database.swift */; };
 		7FF7485B1F452DEE007356C2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F961C441F452B7C00A65D2C /* libsqlite3.tbd */; };
@@ -32,9 +29,6 @@
 		7F1E31421F4530F900C21E53 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		7F497C061F3FF5E2002A152C /* tweetSQL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tweetSQL; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F497C091F3FF5E2002A152C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		7F497C101F3FF60B002A152C /* tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tweet.swift; sourceTree = "<group>"; };
-		7F497C121F3FF67E002A152C /* twitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twitterUser.swift; sourceTree = "<group>"; };
-		7F497C141F3FF6AB002A152C /* twitterSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twitterSearch.swift; sourceTree = "<group>"; };
 		7F497C161F3FF8D1002A152C /* twitterAPIQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twitterAPIQuery.swift; sourceTree = "<group>"; };
 		7F961C401F452B4000A65D2C /* database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = database.swift; sourceTree = "<group>"; };
 		7F961C441F452B7C00A65D2C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -73,9 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				7F497C091F3FF5E2002A152C /* main.swift */,
-				7F497C101F3FF60B002A152C /* tweet.swift */,
-				7F497C121F3FF67E002A152C /* twitterUser.swift */,
-				7F497C141F3FF6AB002A152C /* twitterSearch.swift */,
 				7F497C161F3FF8D1002A152C /* twitterAPIQuery.swift */,
 				7F961C401F452B4000A65D2C /* database.swift */,
 				7F1E31421F4530F900C21E53 /* Header.h */,
@@ -149,12 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F497C131F3FF67E002A152C /* twitterUser.swift in Sources */,
 				7F497C0A1F3FF5E2002A152C /* main.swift in Sources */,
 				7F961C411F452B4000A65D2C /* database.swift in Sources */,
-				7F497C111F3FF60B002A152C /* tweet.swift in Sources */,
 				7F497C171F3FF8D1002A152C /* twitterAPIQuery.swift in Sources */,
-				7F497C151F3FF6AB002A152C /* twitterSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
