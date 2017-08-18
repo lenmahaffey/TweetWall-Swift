@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum SQLiteError: Error {
+    case openDatabase(message: String)
+    case prepareStatment(message: String)
+    case step(message: String)
+    case bind(message: String)
+}
+
 class SQliteDB {
     
     private let db: OpaquePointer
@@ -33,9 +40,13 @@ class SQliteDB {
             }
         }
         if let errorMessage = String(String(describing: sqlite3_errmsg(db!))){
-
+            throw SQLiteError.openDatabase(message: errorMessage)
+        } else {
+            throw SQLiteError.openDatabase(message: "Unknown Error")
         }
     }
+    
+    
 }
 
 
