@@ -40,7 +40,7 @@ class SQliteDB {
         
         if sqlite3_open(path, &db) == SQLITE_OK {
             return SQliteDB(database: db!)
-        } else{
+        } else {
             defer {
                 if db != nil{
                     sqlite3_close(db!)
@@ -54,7 +54,13 @@ class SQliteDB {
         }
     }
     
-    
+    func prepare(sql: String) throws -> OpaquePointer {
+        var statement: OpaquePointer? = nil
+        guard sqlite3_prepare(db, sql, -1, &statement, nil) == SQLITE_OK else {
+            throw SQLiteError.prepareStatment(message: errorMessage)
+        }
+        return statement!
+    }
 }
 
 
