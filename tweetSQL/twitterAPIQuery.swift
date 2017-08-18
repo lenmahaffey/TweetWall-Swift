@@ -11,10 +11,12 @@ import Foundation
 class twitterAPIQuery {
     
     let bearerTokenCredentials: String
-    let authToken: String
+    var authToken: String = ""
+    var connected: Bool = false
     
     init (credendtials: String) {
         self.bearerTokenCredentials = "Ou6nKK5jAYErdtHFr1esY5gZF:Cefy7q0H1fvucmaWoro7yZVj2wLjW2Am9JvQCtWzR02Z39l6WE"
+        self.getAuthToken()
     }
     
     func getAuthToken() {
@@ -35,19 +37,18 @@ class twitterAPIQuery {
             }else if let data = data{
                 let JSONdata = try? JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
                 let token = JSONdata!["access_token"]! as! String
-                print(token)
                 self.setAuthToken(token: token)
-                //getTweets(token: token, hashtag: "#Denver")
             }
         })
         authTask.resume()
     }
     
     func setAuthToken (token: String) {
-        let authToken = token
+        self.authToken = token
+        self.connected = true
     }
     
-    func getTweets (token: String, hashtag: String){
+    func getTweets (hashtag: String){
         let apiURLComponents = NSURLComponents.init()
         apiURLComponents.scheme = "https"
         apiURLComponents.host = "api.twitter.com"
@@ -58,10 +59,10 @@ class twitterAPIQuery {
         print(apiURL!)
         let apiSessionConfig = URLSessionConfiguration.default
         let apiSession = URLSession(configuration: apiSessionConfig)
-        let authToken = "Bearer \(token)"
+        let authoriationField = "Bearer \(self.authToken)"
         var apiRequest = URLRequest(url: (apiURL!))
         apiRequest.httpMethod = "GET"
-        apiRequest.setValue(authToken , forHTTPHeaderField: "Authorization" )
+        apiRequest.setValue(authoriationField , forHTTPHeaderField: "Authorization" )
         apiRequest.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
         let apiTask = apiSession.dataTask(with: apiRequest, completionHandler:
         {(data, response, error) in
