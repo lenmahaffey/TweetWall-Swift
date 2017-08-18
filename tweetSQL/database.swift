@@ -19,6 +19,14 @@ class SQliteDB {
     
     private let db: OpaquePointer
     
+    private var errorMessage: String {
+        if sqlite3_errmsg(db) != nil {
+            return String(describing: sqlite3_errmsg(db))
+        } else {
+            return "No error"
+        }
+    }
+    
     private init(database: OpaquePointer) {
         self.db = database
     }
