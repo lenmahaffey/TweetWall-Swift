@@ -8,7 +8,7 @@
 
 import Foundation
 
-class twitterAPIQuery {
+class twitterAPI {
     
     private let bearerTokenCredentials: String
     private var authToken: String = ""
