@@ -10,8 +10,8 @@ import Foundation
 
 class twitterAPIQuery {
     
-    let bearerTokenCredentials: String
-    var authToken: String = ""
+    private let bearerTokenCredentials: String
+    private var authToken: String = ""
     var connected: Bool = false
     
     init (credendtials: String) {
