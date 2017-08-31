@@ -19,7 +19,7 @@ class SQliteDB {
     
     private let db: OpaquePointer
     
-    private var errorMessage: String {
+    var errorMessage: String {
         if sqlite3_errmsg(db) != nil {
             return String(describing: sqlite3_errmsg(db))
         } else {
@@ -35,7 +35,7 @@ class SQliteDB {
         sqlite3_close(db)
     }
     
-    func open(path: String) throws -> SQliteDB {
+    static func openDB(path: String) throws -> SQliteDB {
         var db: OpaquePointer? = nil
         
         if sqlite3_open(path, &db) == SQLITE_OK {
