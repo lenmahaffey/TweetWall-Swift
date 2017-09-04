@@ -21,7 +21,7 @@ class SQliteDB {
     
     var errorMessage: String {
         if sqlite3_errmsg(db) != nil {
-            return String(describing: sqlite3_errmsg(db))
+            return String(describing: sqlite3_errmsg(db)!)
         } else {
             return "No error"
         }
