@@ -8,16 +8,16 @@
 
 import Foundation
 
-print("Hello, World!")
 
-var database: SQliteDB
 
 do {
-    try database = SQliteDB.openDB(path: "/Users/Bozziley/Desktop/testDB.db")
+    guard let dbPath = Bundle.main.path(forResource: "tweetSQL", ofType:"db", inDirectory: "Resources") else {
+        throw SQLiteError.openDatabase(message: "Bad Path")
+    }
+    print(dbPath)
+    let database = try SQliteDB.openDB(path: dbPath)
 }
-catch SQLiteError.openDatabase(message: "Unable to open database"){}
-
-//print(database.errorMessage)
+catch SQLiteError.openDatabase("Error"){}
 
 
 
