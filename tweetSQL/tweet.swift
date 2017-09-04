@@ -1,5 +1,5 @@
 //
-//  twitterAPISearchResult.swift
+//  tweet.swift
 //  tweetSQL
 //
 //  Created by Len Mahaffey on 8/31/17.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-class twitterAPISearchResult {
+class tweet {
     
     let data: Dictionary<String, Any>
     
-    init (searchResults: Dictionary<String, Any>){
-        data = searchResults
+    init (JSONTweet: Dictionary<String, Any>){
+        data = JSONTweet
     }
     
 }
