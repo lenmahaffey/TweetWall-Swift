@@ -35,7 +35,7 @@ class twitterAPI {
             if let error = error {
                 print(error.localizedDescription)
             }else if let data = data{
-                let JSONdata = try? JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
+                let JSONdata = try? JSONSerialization.jsonObject(with: data, options: []) as! Dictionary<String, Any>
                 let token = JSONdata!["access_token"]! as! String
                 self.setAuthToken(token: token)
             }
