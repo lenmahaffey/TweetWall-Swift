@@ -9,15 +9,18 @@
 import Foundation
 
 
-
-do {
-    guard let dbPath = Bundle.main.path(forResource: "tweetSQL", ofType:"db", inDirectory: "Resources") else {
-        throw SQLiteError.openDatabase(message: "Bad Path")
-    }
+if let dbPath = Bundle.main.path(forResource: "tweetSQL", ofType:"db", inDirectory: "Resources") {
     print(dbPath)
-    let database = try SQliteDB.openDB(path: dbPath)
+    do {
+        let database = try SQliteDB.openDB(path: dbPath)
+    }
+    catch SQLiteError.openDatabase("Error"){}
+} else {
+    print("bad path")
 }
-catch SQLiteError.openDatabase("Error"){}
+
+
+
 
 
 

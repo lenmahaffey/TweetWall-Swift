@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F041C9D1F5DBD4B00CBAF98 /* twitterAPISearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE2DD031F58BDB00060E114 /* twitterAPISearchResult.swift */; };
 		7F041C9F1F5DBDE000CBAF98 /* tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F041C9E1F5DBDE000CBAF98 /* tweet.swift */; };
+		7F041CA51F5E710500CBAF98 /* tweetSQL.db in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7F041CA41F5DE29000CBAF98 /* tweetSQL.db */; };
 		7F497C0A1F3FF5E2002A152C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C091F3FF5E2002A152C /* main.swift */; };
 		7F497C171F3FF8D1002A152C /* twitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C161F3FF8D1002A152C /* twitterAPI.swift */; };
 		7F961C411F452B4000A65D2C /* database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F961C401F452B4000A65D2C /* database.swift */; };
@@ -20,8 +21,9 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = Resources;
-			dstSubfolderSpec = 16;
+			dstSubfolderSpec = 7;
 			files = (
+				7F041CA51F5E710500CBAF98 /* tweetSQL.db in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
