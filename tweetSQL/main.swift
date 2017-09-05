@@ -8,10 +8,8 @@
 
 import Foundation
 
-
-let dbPath = Bundle.main.path(forResource: "tweetSQL", ofType:"db", inDirectory: "Resources")
 do  {
-    let database = try SQliteDB.openDB(path: dbPath!)
+    let database = try SQliteDB.openDB()
     }
 catch SQLiteError.openDatabase("Error"){}
 
