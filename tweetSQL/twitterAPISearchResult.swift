@@ -17,7 +17,7 @@ struct searchResultsMetadata {
     let refresh_url: URL?
 
     
-    init? (metaData: Dictionary<String, Any>) {
+    init (metaData: Dictionary<String, Any>) {
         self.completed_in = metaData["completed_in"] as? Float
         self.count = metaData["count"] as? Int32
         self.max_id = metaData["max_id"] as? Int32
@@ -36,7 +36,7 @@ class twitterAPISearchResult {
     init (searchResults: Dictionary<String, Any>) throws {
         self.data = searchResults
         self.db = try SQliteDB.openDB()
-        self.results = searchResultsMetadata(metaData: self.data)!
+        self.results = searchResultsMetadata(metaData: self.data)
         }
 }
     
