@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		7F041C9D1F5DBD4B00CBAF98 /* twitterAPISearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE2DD031F58BDB00060E114 /* twitterAPISearchResult.swift */; };
 		7F041C9F1F5DBDE000CBAF98 /* tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F041C9E1F5DBDE000CBAF98 /* tweet.swift */; };
-		7F041CA51F5E710500CBAF98 /* tweetSQL.db in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7F041CA41F5DE29000CBAF98 /* tweetSQL.db */; };
 		7F497C0A1F3FF5E2002A152C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C091F3FF5E2002A152C /* main.swift */; };
 		7F497C171F3FF8D1002A152C /* twitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F497C161F3FF8D1002A152C /* twitterAPI.swift */; };
 		7F961C411F452B4000A65D2C /* database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F961C401F452B4000A65D2C /* database.swift */; };
+		7FD309331F5E7AD300574698 /* tweetSQL.db in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7FD309321F5E7AC100574698 /* tweetSQL.db */; };
 		7FF7485B1F452DEE007356C2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F961C441F452B7C00A65D2C /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +23,7 @@
 			dstPath = Resources;
 			dstSubfolderSpec = 7;
 			files = (
-				7F041CA51F5E710500CBAF98 /* tweetSQL.db in CopyFiles */,
+				7FD309331F5E7AD300574698 /* tweetSQL.db in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -31,13 +31,13 @@
 
 /* Begin PBXFileReference section */
 		7F041C9E1F5DBDE000CBAF98 /* tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tweet.swift; sourceTree = "<group>"; };
-		7F041CA41F5DE29000CBAF98 /* tweetSQL.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tweetSQL.db; sourceTree = "<group>"; };
 		7F1E31421F4530F900C21E53 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		7F497C061F3FF5E2002A152C /* tweetSQL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tweetSQL; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F497C091F3FF5E2002A152C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7F497C161F3FF8D1002A152C /* twitterAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twitterAPI.swift; sourceTree = "<group>"; };
 		7F961C401F452B4000A65D2C /* database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = database.swift; sourceTree = "<group>"; };
 		7F961C441F452B7C00A65D2C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		7FD309321F5E7AC100574698 /* tweetSQL.db */ = {isa = PBXFileReference; lastKnownFileType = text; path = tweetSQL.db; sourceTree = "<group>"; };
 		7FE2DD031F58BDB00060E114 /* twitterAPISearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = twitterAPISearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,21 +53,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7F041CA11F5DBE4C00CBAF98 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7F041CA41F5DE29000CBAF98 /* tweetSQL.db */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		7F497BFD1F3FF5E2002A152C = {
 			isa = PBXGroup;
 			children = (
 				7F497C081F3FF5E2002A152C /* tweetSQL */,
 				7F497C071F3FF5E2002A152C /* Products */,
 				7F961C421F452B7C00A65D2C /* Frameworks */,
-				7F041CA11F5DBE4C00CBAF98 /* Resources */,
+				7FD309311F5E7AC100574698 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +90,15 @@
 				7F961C441F452B7C00A65D2C /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FD309311F5E7AC100574698 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7FD309321F5E7AC100574698 /* tweetSQL.db */,
+			);
+			name = Resources;
+			path = tweetSQL/Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
