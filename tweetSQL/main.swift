@@ -10,7 +10,6 @@ import Foundation
 
 
 let dbPath = Bundle.main.path(forResource: "tweetSQL", ofType:"db", inDirectory: "Resources")
-print(dbPath!)
 do  {
     let database = try SQliteDB.openDB(path: dbPath!)
     }
