@@ -9,22 +9,37 @@
 import Foundation
 
 struct tweetData {
-    let source: URL
-    let truncated: Bool
-    let is_quote_status: Bool
-    let iso_language_code: String
-    let result_type: String
-    let lang: String
+    let created_at: Date
     let favorited: Bool
     let favorite_count: Int
     let id: Int
+    let is_quote_status: Bool
+    let iso_language_code: String
+    let lang: String
+    let result_type: String
     let retweeted: Bool
     let retweet_count: Int
+    let source: URL
     let text: String
-    let created_at: Date
-    let user: NSObject
-    let in_reply_to_user_id: NSObject
-    let in_reply_to_screen_name: NSObject
+    let truncated: Bool
+    let user: String
+    
+    init(tweet: Dictionary<String, Any>) {
+        self.created_at = tweet["created_at"] as! Date
+        self.favorited = tweet["favorited"] as! Bool
+        self.favorite_count = tweet["favorite_count"] as! Int
+        self.id = tweet["id"] as! Int
+        self.is_quote_status = tweet["is_quote_status"] as! Bool
+        self.iso_language_code = tweet["iso_language_code"] as! String
+        self.lang = tweet["lang"] as! String
+        self.result_type = tweet["result_type"] as! String
+        self.retweeted = tweet["retweeted"] as! Bool
+        self.retweet_count = tweet["retweet_count"] as! Int
+        self.source = tweet["source"] as! URL
+        self.text = tweet["text"] as!String
+        self.truncated = tweet["truncated"] as! Bool
+        self.user = tweet["user"] as! String
+    }
 }
 
 class tweet {
@@ -33,6 +48,7 @@ class tweet {
     
     init (JSONTweet: Dictionary<String, Any>){
         data = JSONTweet
+        
     }
     
 }
