@@ -16,7 +16,6 @@ struct searchResultsMetadata {
     let query: String?
     let refresh_url: URL?
 
-    
     init (metaData: Dictionary<String, Any>) {
         self.completed_in = metaData["completed_in"] as? Float
         self.count = metaData["count"] as? Int32
