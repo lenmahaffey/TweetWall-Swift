@@ -43,12 +43,14 @@ struct tweetData {
 }
 
 class tweet {
-    
     let data: Dictionary<String, Any>
+    let tweet: tweetData
+    private let db: SQliteDB
     
-    init (JSONTweet: Dictionary<String, Any>){
-        data = JSONTweet
-        
+    init (JSONTweet: Dictionary<String, Any>) throws{
+        self.data = JSONTweet
+        self.tweet = tweetData(tweet: JSONTweet)
+        self.db = try SQliteDB.openDB()
     }
     
 }
