@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct twitterUser {
+struct twitterUserStruct {
     let contributors_enabled: Bool
     let created_at: Date
     let default_profile: String
@@ -91,5 +91,17 @@ struct twitterUser {
         self.url = userData["url"] as! URL
         self.utc_offset = userData["utc_offset"] as! String
         self.verified = userData["verified≈"] as! Bool
+    }
+}
+
+class twitterUser {
+    let data: Dictionary<String, Any>
+    let user: twitterUserStruct
+    private let db: SQliteDB
+    
+    init (userData: Dictionary<String, Any>) throws{
+        self.data = userData
+        self.user = twitterUserStruct(userData: userData)
+        self.db = try SQliteDB.openDB()
     }
 }
