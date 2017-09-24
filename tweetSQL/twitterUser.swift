@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct userData {
+struct twitterUser {
     let contributors_enabled: Bool
     let created_at: Date
     let default_profile: String
