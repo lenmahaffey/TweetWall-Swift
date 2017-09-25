@@ -31,7 +31,7 @@ class twitterAPISearchResult {
     let data: Dictionary<String, Any>
     let results: searchResultsMetadata
     
-    init (searchResults: Dictionary<String, Any>) throws {
+    init (searchResults: Dictionary<String, Any>) {
         self.data = searchResults
         self.results = searchResultsMetadata(metaData: self.data)
         }

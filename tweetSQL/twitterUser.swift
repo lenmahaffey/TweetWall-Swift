@@ -98,7 +98,7 @@ class twitterUser {
     let data: Dictionary<String, Any>
     let user: twitterUserStruct
     
-    init (userData: Dictionary<String, Any>) throws{
+    init (userData: Dictionary<String, Any>) {
         self.data = userData
         self.user = twitterUserStruct(userData: userData)
     }

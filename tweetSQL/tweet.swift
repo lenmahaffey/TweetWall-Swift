@@ -46,7 +46,7 @@ class tweet {
     let data: Dictionary<String, Any>
     let tweet: tweetData
     
-    init (JSONTweet: Dictionary<String, Any>) throws{
+    init (JSONTweet: Dictionary<String, Any>) {
         self.data = JSONTweet
         self.tweet = tweetData(tweet: JSONTweet)
     }
