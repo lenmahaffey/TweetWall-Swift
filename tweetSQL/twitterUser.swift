@@ -97,11 +97,9 @@ struct twitterUserStruct {
 class twitterUser {
     let data: Dictionary<String, Any>
     let user: twitterUserStruct
-    private let db: SQliteDB
     
     init (userData: Dictionary<String, Any>) throws{
         self.data = userData
         self.user = twitterUserStruct(userData: userData)
-        self.db = try SQliteDB.openDB()
     }
 }

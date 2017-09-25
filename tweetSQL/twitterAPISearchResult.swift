@@ -30,11 +30,9 @@ class twitterAPISearchResult {
     
     let data: Dictionary<String, Any>
     let results: searchResultsMetadata
-    private let db: SQliteDB
     
     init (searchResults: Dictionary<String, Any>) throws {
         self.data = searchResults
-        self.db = try SQliteDB.openDB()
         self.results = searchResultsMetadata(metaData: self.data)
         }
 }
