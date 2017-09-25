@@ -14,7 +14,7 @@ class twitterAPI {
     private var authToken: String = ""
     var connected: Bool = false
     
-    init (credendtials: String) {
+    init () {
         self.bearerTokenCredentials = "Ou6nKK5jAYErdtHFr1esY5gZF:Cefy7q0H1fvucmaWoro7yZVj2wLjW2Am9JvQCtWzR02Z39l6WE"
         self.getAuthToken()
     }
