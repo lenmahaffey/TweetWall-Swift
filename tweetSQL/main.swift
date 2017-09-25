@@ -8,10 +8,7 @@
 
 import Foundation
 
-do  {
-    let database = try SQliteDB.openDB()
-    }
-catch SQLiteError.openDatabase("Error"){}
+
 
 
 
