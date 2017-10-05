@@ -12,6 +12,7 @@ class twitterAPI {
     
     private let bearerTokenCredentials: String
     private var authToken: String = ""
+    var currentResult: twitterAPISearchResult?
     var connected: Bool = false
     
     init () {
@@ -48,7 +49,7 @@ class twitterAPI {
         self.connected = true
     }
     
-    func getTweets (hashtag: String){
+    func getTweets (hashtag: String) {
         let apiURLComponents = NSURLComponents.init()
         apiURLComponents.scheme = "https"
         apiURLComponents.host = "api.twitter.com"
@@ -56,7 +57,6 @@ class twitterAPI {
         apiURLComponents.query = hashtag
         //let apiURL = apiURLComponents.url!
         let apiURL = URL(string: "https://api.twitter.com//1.1/search/tweets.json?q=%23Denver")
-        print(apiURL!)
         let apiSessionConfig = URLSessionConfiguration.default
         let apiSession = URLSession(configuration: apiSessionConfig)
         let authoriationField = "Bearer \(self.authToken)"
@@ -70,15 +70,7 @@ class twitterAPI {
                 print(error.localizedDescription)
             }else if let data = data{
                 let JSONdata = try? JSONSerialization.jsonObject(with: data, options: []) as! Dictionary<String , Any>
-                print(JSONdata!)
-                let path = "/users/bozziley/desktop/#denver.json"
-                let contents = String(data: data, encoding: String.Encoding.utf8)
-                do{
-                    try contents?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
-                }
-                catch let error as NSError {
-                    print(error)
-                }
+                self.currentResult = twitterAPISearchResult(searchResults: JSONdata!["search_metadata"] as! Dictionary<String,Any>, tweets: JSONdata!["statuses"] as! Array<Any>)
             }
         })
         apiTask.resume()
