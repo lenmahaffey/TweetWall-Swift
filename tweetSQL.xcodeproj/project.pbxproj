@@ -78,8 +78,8 @@
 			children = (
 				7F497C091F3FF5E2002A152C /* main.swift */,
 				7F497C161F3FF8D1002A152C /* twitterAPI.swift */,
-				7FE2DD031F58BDB00060E114 /* twitterAPISearchResult.swift */,
 				7FD69F951F789B460053DB10 /* database.swift */,
+				7FE2DD031F58BDB00060E114 /* twitterAPISearchResult.swift */,
 				7F041C9E1F5DBDE000CBAF98 /* tweet.swift */,
 				7F5639281F7607EB00926A10 /* twitterUser.swift */,
 				7F1E31421F4530F900C21E53 /* Header.h */,
