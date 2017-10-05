@@ -15,14 +15,16 @@ struct searchResultsMetadata {
     let since_id: Int32?
     let query: String?
     let refresh_url: URL?
+    let statuses: Array<Any>
 
-    init (metaData: Dictionary<String, Any>) {
+    init (metaData: Dictionary<String, Any>, tweets: Array<Any>) {
         self.completed_in = metaData["completed_in"] as? Float
         self.count = metaData["count"] as? Int32
         self.max_id = metaData["max_id"] as? Int32
         self.since_id = metaData["since_id"] as? Int32
         self.query = metaData["query"] as? String
         self.refresh_url = URL.init(string: "https://api.twitter.com/1.1/search/tweets.json\(String(describing: metaData["refresh_url"]))")!
+        self.statuses = tweets
     }
 }
 
@@ -31,9 +33,9 @@ class twitterAPISearchResult {
     let data: Dictionary<String, Any>
     let results: searchResultsMetadata
     
-    init (searchResults: Dictionary<String, Any>) {
+    init (searchResults: Dictionary<String, Any>, tweets: Array<Any>) {
         self.data = searchResults
-        self.results = searchResultsMetadata(metaData: self.data)
+        self.results = searchResultsMetadata(metaData: searchResults, tweets: tweets)
         }
 }
     
