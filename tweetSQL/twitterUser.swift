@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct twitterUserStruct {
+class twitterUser {
+    let data: Dictionary<String, Any>
+    
     let contributors_enabled: Bool
     let created_at: Date
     let default_profile: String
@@ -49,8 +51,10 @@ struct twitterUserStruct {
     let url: URL
     let utc_offset: String
     let verified: Bool
-
-    init(userData: Dictionary<String,Any>) {
+    
+    init (userData: Dictionary<String, Any>) {
+        self.data = userData
+        
         self.contributors_enabled = userData["contributors_enabled"] as! Bool
         self.created_at = userData["created_at"] as! Date
         self.default_profile = userData["default_profile"] as! String
@@ -91,15 +95,5 @@ struct twitterUserStruct {
         self.url = userData["url"] as! URL
         self.utc_offset = userData["utc_offset"] as! String
         self.verified = userData["verified≈"] as! Bool
-    }
-}
-
-class twitterUser {
-    let data: Dictionary<String, Any>
-    let user: twitterUserStruct
-    
-    init (userData: Dictionary<String, Any>) {
-        self.data = userData
-        self.user = twitterUserStruct(userData: userData)
     }
 }

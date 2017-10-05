@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct tweetData {
+
+class tweet {
+    let data: Dictionary<String, Any>
     let created_at: Date
     let favorited: Bool
     let favorite_count: Int
@@ -22,33 +24,39 @@ struct tweetData {
     let source: URL
     let text: String
     let truncated: Bool
-    let user: String
-    
-    init(tweet: Dictionary<String, Any>) {
-        self.created_at = tweet["created_at"] as! Date
-        self.favorited = tweet["favorited"] as! Bool
-        self.favorite_count = tweet["favorite_count"] as! Int
-        self.id = tweet["id"] as! Int
-        self.is_quote_status = tweet["is_quote_status"] as! Bool
-        self.iso_language_code = tweet["iso_language_code"] as! String
-        self.lang = tweet["lang"] as! String
-        self.result_type = tweet["result_type"] as! String
-        self.retweeted = tweet["retweeted"] as! Bool
-        self.retweet_count = tweet["retweet_count"] as! Int
-        self.source = tweet["source"] as! URL
-        self.text = tweet["text"] as!String
-        self.truncated = tweet["truncated"] as! Bool
-        self.user = tweet["user"] as! String
-    }
-}
+    //let user: String
 
-class tweet {
-    let data: Dictionary<String, Any>
-    let tweet: tweetData
     
     init (JSONTweet: Dictionary<String, Any>) {
         self.data = JSONTweet
-        self.tweet = tweetData(tweet: JSONTweet)
+        
+        self.created_at = JSONTweet["created_at"] as! Date
+        self.favorited = JSONTweet["favorited"] as! Bool
+        self.favorite_count = JSONTweet["favorite_count"] as! Int
+        self.id = JSONTweet["id"] as! Int
+        self.is_quote_status = JSONTweet["is_quote_status"] as! Bool
+        self.iso_language_code = JSONTweet["iso_language_code"] as! String
+        self.lang = JSONTweet["lang"] as! String
+        self.result_type = JSONTweet["result_type"] as! String
+        self.retweeted = JSONTweet["retweeted"] as! Bool
+        self.retweet_count = JSONTweet["retweet_count"] as! Int
+        self.source = JSONTweet["source"] as! URL
+        self.text = JSONTweet["text"] as!String
+        self.truncated = JSONTweet["truncated"] as! Bool
+        //self.user = JSONTweet["user"] as! JSONTweet["created_at"] as! Date
+        self.favorited = JSONTweet["favorited"] as! Bool
+        self.favorite_count = JSONTweet["favorite_count"] as! Int
+        self.id = JSONTweet["id"] as! Int
+        self.is_quote_status = JSONTweet["is_quote_status"] as! Bool
+        self.iso_language_code = JSONTweet["iso_language_code"] as! String
+        self.lang = JSONTweet["lang"] as! String
+        self.result_type = JSONTweet["result_type"] as! String
+        self.retweeted = JSONTweet["retweeted"] as! Bool
+        self.retweet_count = JSONTweet["retweet_count"] as! Int
+        self.source = JSONTweet["source"] as! URL
+        self.text = JSONTweet["text"] as!String
+        self.truncated = JSONTweet["truncated"] as! Bool
+        self.user = JSONTweet["user"] as! String
     }
     
 }
