@@ -10,10 +10,10 @@ import Foundation
 
 var currentSearch = twitterAPI()
 
-sleep(2)
+sleep(1)
 currentSearch.getTweets(hashtag: "#Denver")
 sleep(2)
-print(currentSearch.currentResult!.data.description)
+print(currentSearch.currentResult!.results)
 
 
 
