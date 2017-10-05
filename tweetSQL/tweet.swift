@@ -44,19 +44,6 @@ class tweet {
         self.text = JSONTweet["text"] as!String
         self.truncated = JSONTweet["truncated"] as! Bool
         //self.user = JSONTweet["user"] as! JSONTweet["created_at"] as! Date
-        self.favorited = JSONTweet["favorited"] as! Bool
-        self.favorite_count = JSONTweet["favorite_count"] as! Int
-        self.id = JSONTweet["id"] as! Int
-        self.is_quote_status = JSONTweet["is_quote_status"] as! Bool
-        self.iso_language_code = JSONTweet["iso_language_code"] as! String
-        self.lang = JSONTweet["lang"] as! String
-        self.result_type = JSONTweet["result_type"] as! String
-        self.retweeted = JSONTweet["retweeted"] as! Bool
-        self.retweet_count = JSONTweet["retweet_count"] as! Int
-        self.source = JSONTweet["source"] as! URL
-        self.text = JSONTweet["text"] as!String
-        self.truncated = JSONTweet["truncated"] as! Bool
-        self.user = JSONTweet["user"] as! String
     }
     
 }
