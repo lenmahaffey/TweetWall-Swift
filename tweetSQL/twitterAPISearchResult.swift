@@ -18,7 +18,7 @@ class twitterAPISearchResult {
     let since_id: Int32?
     let query: String?
     let refresh_url: URL?
-    let statuses: Array<Any>
+    var statuses: Array<tweetClass>
     
     init (searchResults: Dictionary<String, Any>, tweets: Array<Any>) {
         self.data = searchResults
@@ -28,9 +28,13 @@ class twitterAPISearchResult {
         self.max_id = searchResults["max_id"] as? Int32
         self.since_id = searchResults["since_id"] as? Int32
         self.query = searchResults["query"] as? String
-        self.refresh_url = URL.init(string: "https://api.twitter.com/1.1/search/tweets.json\(String(describing: searchResults["refresh_url"]))")!
-        self.statuses = searchResults["statuses"] as! Array
+        self.refresh_url = URL.init(string: "https://api.twitter.com/1.1/search/tweets.json\(String(describing: searchResults["refresh_url"]))")
+        self.statuses = Array()
+        for tweet in tweets {
+            let newTweet = tweetClass.init(JSONTweet: tweet as! Dictionary<String,Any>)
+            self.statuses.append(newTweet)
         }
+    }
 }
     
 
