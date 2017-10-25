@@ -34,7 +34,7 @@ class SQliteDB {
     deinit {
         sqlite3_close(db)
     }
-    /*
+
     static func openDB() throws -> SQliteDB {
         var db: OpaquePointer? = nil
         let dbPath = Bundle.main.path(forResource: "tweetSQL", ofType:"db", inDirectory: "Resources")
@@ -48,13 +48,13 @@ class SQliteDB {
                 }
             }
         }
-        if let errorMessage = String(String(describing: sqlite3_errmsg(db!))){
-            throw SQLiteError.openDatabase(message: errorMessage)
+        if sqlite3_errmsg(db!) != nil {
+            throw SQLiteError.openDatabase(message: String(describing: sqlite3_errmsg(db!)))
         } else {
             throw SQLiteError.openDatabase(message: "Unknown Error")
         }
     }
-    */
+
     func prepare(sql: String) throws -> OpaquePointer {
         var statement: OpaquePointer? = nil
         guard sqlite3_prepare(db, sql, -1, &statement, nil) == SQLITE_OK else {
