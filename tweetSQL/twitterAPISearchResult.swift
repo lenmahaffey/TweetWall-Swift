@@ -27,8 +27,8 @@ class twitterAPISearchResult {
         self.count = searchResults["count"] as? Int32
         self.max_id = searchResults["max_id"] as? Int32
         self.since_id = searchResults["since_id"] as? Int32
-        self.query = searchResults["query"] as? String
-        self.refresh_url = URL.init(string: "https://api.twitter.com/1.1/search/tweets.json\(String(describing: searchResults["refresh_url"]))")
+        self.query = String(describing:searchResults["query"]!).replacingOccurrences(of: "%23", with:"")
+        self.refresh_url = URL.init(string: "https://api.twitter.com/1.1/search/tweets.json" + (String(describing: searchResults["refresh_url"]!)))
         self.statuses = Array()
         for tweet in tweets {
             let newTweet = tweetClass.init(JSONTweet: tweet as! Dictionary<String,Any>)
