@@ -24,6 +24,12 @@ class SQliteDB {
         return resultCode
     }
     
+    var resultString: String {
+        let resultCString =  String.init(cString: sqlite3_errmsg(db)!)
+        return resultCString
+     }
+
+    
     private init(database: OpaquePointer) {
         self.db = database
     }
