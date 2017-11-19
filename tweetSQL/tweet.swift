@@ -27,7 +27,7 @@ class tweetClass {
     let user: twitterUser?
 
     
-    init (JSONTweet: Dictionary<String, Any>) {
+    init (JSONTweet: Dictionary<String, Any>, hastag: String) throws {
         self.data = JSONTweet
         self.db = try SQliteDB.openDB()
         
