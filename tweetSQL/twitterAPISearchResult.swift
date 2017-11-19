@@ -32,7 +32,7 @@ class twitterAPISearchResult {
         self.refresh_url = URL.init(string: "https://api.twitter.com/1.1/search/tweets.json" + (String(describing: searchResults["refresh_url"]!)))
         self.statuses = Array()
         for tweet in tweets {
-            let newTweet = tweetClass.init(JSONTweet: tweet as! Dictionary<String,Any>)
+            let newTweet = try tweetClass.init(JSONTweet: tweet as! Dictionary<String,Any>, hastag: self.query!)
             self.statuses.append(newTweet)
         }
         try db = SQliteDB.openDB()
