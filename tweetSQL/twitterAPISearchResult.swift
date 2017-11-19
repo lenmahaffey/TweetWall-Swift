@@ -38,5 +38,3 @@ class twitterAPISearchResult {
         try db = SQliteDB.openDB()
     }
 }
-    
-
