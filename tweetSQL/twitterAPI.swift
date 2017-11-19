@@ -70,7 +70,7 @@ class twitterAPI {
                 print(error.localizedDescription)
             }else if let data = data{
                 let JSONdata = try? JSONSerialization.jsonObject(with: data, options: []) as! Dictionary<String , Any>
-                self.currentResult = twitterAPISearchResult(searchResults: JSONdata!["search_metadata"] as! Dictionary<String,Any>, tweets: JSONdata!["statuses"] as! Array<Any>)
+                self.currentResult = try? twitterAPISearchResult(searchResults: JSONdata!["search_metadata"] as! Dictionary<String,Any>, tweets: JSONdata!["statuses"] as! Array<Any>)
             }
         })
         apiTask.resume()
