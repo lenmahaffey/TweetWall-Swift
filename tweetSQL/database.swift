@@ -47,12 +47,12 @@ class SQliteDB {
         } else {
             defer {
                 if db != nil{
-                    sqlite3_close(db!)
+                    sqlite3_close(db)
                 }
             }
         }
         if sqlite3_errmsg(db!) != nil {
-            throw SQLiteError.openDatabase(message: String(describing: sqlite3_errmsg(db!)))
+            throw SQLiteError.openDatabase(message: String(describing: sqlite3_errmsg(db)))
         } else {
             throw SQLiteError.openDatabase(message: "Unknown Error")
         }
