@@ -11,7 +11,8 @@ import Foundation
 class twitterAPISearchResult {
     
     let data: Dictionary<String, Any>
-    
+
+    var db: SQliteDB
     let completed_in: Float?
     let count: Int32?
     let max_id: Int32?
@@ -34,6 +35,7 @@ class twitterAPISearchResult {
             let newTweet = tweetClass.init(JSONTweet: tweet as! Dictionary<String,Any>)
             self.statuses.append(newTweet)
         }
+        try db = SQliteDB.openDB()
     }
 }
     
