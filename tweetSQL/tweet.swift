@@ -10,6 +10,7 @@ import Foundation
 
 class tweetClass {
     let data: Dictionary<String, Any>
+    let db: SQliteDB
     
     let created_at: String?
     let favorited: Bool?
@@ -27,6 +28,7 @@ class tweetClass {
     
     init (JSONTweet: Dictionary<String, Any>) {
         self.data = JSONTweet
+        self.db = try SQliteDB.openDB()
         
         self.created_at = JSONTweet["created_at"] as? String
         self.favorited = JSONTweet["favorited"] as? Bool
