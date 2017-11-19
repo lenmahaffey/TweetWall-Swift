@@ -24,7 +24,7 @@ class tweetClass {
     let source: URL?
     let text: String?
     let truncated: Bool?
-    let user: twitterUser
+    let user: twitterUser?
 
     
     init (JSONTweet: Dictionary<String, Any>) {
