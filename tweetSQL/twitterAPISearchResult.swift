@@ -21,7 +21,7 @@ class twitterAPISearchResult {
     let refresh_url: URL?
     var statuses: Array<tweetClass>
     
-    init (searchResults: Dictionary<String, Any>, tweets: Array<Any>) {
+    init (searchResults: Dictionary<String, Any>, tweets: Array<Any>) throws {
         self.data = searchResults
         
         self.completed_in = searchResults["completed_in"] as? Float
