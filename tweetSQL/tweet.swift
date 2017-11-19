@@ -21,7 +21,7 @@ class tweetClass {
     let result_type: String?
     let retweeted: Bool?
     let retweet_count: Int?
-    let source: String?
+    let source: URL?
     let text: String?
     let truncated: Bool?
     let user: twitterUser
