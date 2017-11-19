@@ -41,8 +41,8 @@ class SQliteDB {
     static func openDB() throws -> SQliteDB {
         var db: OpaquePointer? = nil
         let dbPath = Bundle.main.path(forResource: "tweetSQL", ofType:"db", inDirectory: "Resources")
-
         if sqlite3_open(dbPath, &db) == SQLITE_OK {
+            //print("Database Opened")
             return SQliteDB(database: db!)
         } else {
             defer {
