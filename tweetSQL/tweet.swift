@@ -17,6 +17,7 @@ class tweetClass {
     let favorite_count: Int?
     let id: Int?
     let lang: String?
+    let query: String?
     let result_type: String?
     let retweeted: Bool?
     let retweet_count: Int?
