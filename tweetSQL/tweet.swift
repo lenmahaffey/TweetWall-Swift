@@ -63,26 +63,21 @@ class tweetClass {
         guard let id = self.id else {
             return
         }
-
-        guard self.db.createTweetTable(tableName: query) else {
+        guard let createTweet = self.db.createTweet(hashtag: query, id: String(id)) else {
             return
         }
-        
-        guard self.db.createTweet(hashtag: query, id: String(id)) else {
-            return
-        }
-        
-        if self.created_at == nil {
-            self.db.updateTweet(hashtag: query, column: "created_at", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "created_at", value: "\(self.created_at!)", tweet: String(describing: id))
-        }
-
-        if self.favorited == nil {
-            self.db.updateTweet(hashtag: query, column: "favorited", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "favorited", value: "\(self.favorited!)", tweet: String(describing: id))
-        }
+        if createTweet.code == 0  {
+            if self.created_at == nil {
+                self.db.updateTweet(hashtag: query, column: "created_at", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "created_at", value: "\(self.created_at!)", tweet: String(describing: id))
+            }
+            
+            if self.favorited == nil {
+                self.db.updateTweet(hashtag: query, column: "favorited", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "favorited", value: "\(self.favorited!)", tweet: String(describing: id))
+            }
 
         if self.favorite_count == nil {
             self.db.updateTweet(hashtag: query, column: "favorite_count", value: "NULL", tweet: String(describing: id))
