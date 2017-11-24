@@ -133,7 +133,7 @@ class SQliteDB {
         }
     }
     
-    func createTweetTable(tableName: String) -> Bool {
+    func createTweetTable(tableName: String) -> resultMessage? {
         let SQLString = """
         CREATE TABLE IF NOT EXISTS \(tableName)(
         created_at TEXT,
