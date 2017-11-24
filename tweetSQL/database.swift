@@ -59,7 +59,7 @@ class SQliteDB {
         }
     }
 
-    func prepare(sql: String) -> OpaquePointer? {
+    func prepare(sql: String) throws -> OpaquePointer {
         var statement: OpaquePointer? = nil
         if sqlite3_prepare(db, sql, -1, &statement, nil) == SQLITE_OK{
             return statement
