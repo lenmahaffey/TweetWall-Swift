@@ -171,6 +171,44 @@ class SQliteDB {
         }
     }
     
+    func createTweet(hashtag: String, id: String) -> resultMessage? {
+        print ("Creating tweet: \(id) in database: \(hashtag)")
+        let result = self.insertSQL(table: hashtag, column: "id", value: id)
+        return result
+    }
+    
+    func updateTweet(hashtag: String, column: String, value: String, tweet: String) -> resultMessage? {
+        print ("Updating tweet: \(tweet) in database: \(hashtag)")
+        let result = self.updateSQL(table: hashtag, column: column, value: value, id: tweet)
+        return result
+    }
+    
+    func checkForTweet(hashtag: String, tweetID: String) -> resultMessage? {
+        let SQLString = """
+        SELECT 1 FROM \(hashtag) WHERE ID=\(tweetID);
+        """
+        do {
+            let SQLStatement = try self.prepare(sql: SQLString)
+            let SQLResult = try self.executeSQL(SQLStatement: SQLStatement)
+            return SQLResult
+        }
+        catch SQLiteError.prepareStatment(let message) {
+            print(message)
+            let result = currentResult
+            return result
+        }
+        catch SQLiteError.step(let message) {
+            print(message)
+            let result = currentResult
+            return result
+        }
+        catch {
+            print ("Function createTweetTable: Unknown error\n \(self.currentResult.message)\n")
+            let result = currentResult
+            return result
+        }
+    }
+    /*
     func checkTable(tableName: String) -> Bool {
         print("Checking Table")
         let statement = """
