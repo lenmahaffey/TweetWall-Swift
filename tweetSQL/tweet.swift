@@ -55,10 +55,10 @@ class tweetClass {
     }
 
     func addTweetToDB () {
-
         guard let query = self.query else {
             return
         }
+        self.db.createTweetTable(tableName: query)
         
         guard let id = self.id else {
             return
@@ -79,58 +79,59 @@ class tweetClass {
                 self.db.updateTweet(hashtag: query, column: "favorited", value: "\(self.favorited!)", tweet: String(describing: id))
             }
 
-        if self.favorite_count == nil {
-            self.db.updateTweet(hashtag: query, column: "favorite_count", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "favorite_count", value: "\(self.favorite_count!)", tweet: String(describing: id))
-        }
-        
-        if self.lang == nil {
-            self.db.updateTweet(hashtag: query, column: "lang", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "lang", value: "\(self.lang!)", tweet: String(describing: id))
-        }
-        
-        if self.result_type == nil {
-            self.db.updateTweet(hashtag: query, column: "result_type", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "result_type", value: "\(self.result_type!)", tweet: String(describing: id))
-        }
-        if self.retweeted == nil {
-            self.db.updateTweet(hashtag: query, column: "retweeted", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "retweeted", value: "\(self.retweeted!)", tweet: String(describing: id))
-        }
-        
-        if self.retweet_count == nil {
-            self.db.updateTweet(hashtag: query, column: "retweet_count", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "retweet_count", value: "\(self.retweet_count!)", tweet: String(describing: id))
-        }
-        
-        if self.source == nil {
-            self.db.updateTweet(hashtag: query, column: "source", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "source", value: "\(self.source!)", tweet: String(describing: id))
-        }
-        
-        if self.text == nil {
-            self.db.updateTweet(hashtag: query, column: "text", value: "NULL", tweet: String(describing: id))
-        } else {
-            let replacementText = self.text!.replacingOccurrences(of: "'", with: "\''")
-            self.db.updateTweet(hashtag: query, column: "text", value: replacementText, tweet: String(describing: id))
-        }
-        
-        if self.truncated == nil {
-            self.db.updateTweet(hashtag: query, column: "truncated", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "truncated", value: "\(self.truncated!)", tweet: String(describing: id))
-        }
-        
-        if self.user?.id == nil {
-            self.db.updateTweet(hashtag: query, column: "user", value: "NULL", tweet: String(describing: id))
-        } else {
-            self.db.updateTweet(hashtag: query, column: "user", value: "\(self.user!.id!)", tweet: String(describing: id))
+            if self.favorite_count == nil {
+                self.db.updateTweet(hashtag: query, column: "favorite_count", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "favorite_count", value: "\(self.favorite_count!)", tweet: String(describing: id))
+            }
+            
+            if self.lang == nil {
+                self.db.updateTweet(hashtag: query, column: "lang", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "lang", value: "\(self.lang!)", tweet: String(describing: id))
+            }
+            
+            if self.result_type == nil {
+                self.db.updateTweet(hashtag: query, column: "result_type", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "result_type", value: "\(self.result_type!)", tweet: String(describing: id))
+            }
+            if self.retweeted == nil {
+                self.db.updateTweet(hashtag: query, column: "retweeted", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "retweeted", value: "\(self.retweeted!)", tweet: String(describing: id))
+            }
+            
+            if self.retweet_count == nil {
+                self.db.updateTweet(hashtag: query, column: "retweet_count", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "retweet_count", value: "\(self.retweet_count!)", tweet: String(describing: id))
+            }
+            
+            if self.source == nil {
+                self.db.updateTweet(hashtag: query, column: "source", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "source", value: "\(self.source!)", tweet: String(describing: id))
+            }
+            
+            if self.text == nil {
+                self.db.updateTweet(hashtag: query, column: "text", value: "NULL", tweet: String(describing: id))
+            } else {
+                let replacementText = self.text!.replacingOccurrences(of: "'", with: "\''")
+                self.db.updateTweet(hashtag: query, column: "text", value: replacementText, tweet: String(describing: id))
+            }
+            
+            if self.truncated == nil {
+                self.db.updateTweet(hashtag: query, column: "truncated", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "truncated", value: "\(self.truncated!)", tweet: String(describing: id))
+            }
+            
+            if self.user?.id == nil {
+                self.db.updateTweet(hashtag: query, column: "user", value: "NULL", tweet: String(describing: id))
+            } else {
+                self.db.updateTweet(hashtag: query, column: "user", value: "\(self.user!.id!)", tweet: String(describing: id))
+            }
         }
     }
 }
