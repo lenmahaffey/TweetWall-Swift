@@ -18,17 +18,20 @@ class SQliteDB {
     
     private let db: OpaquePointer
     
-    var resultCode: Int32 {
-        let resultCode = sqlite3_errcode(db)
-        return resultCode
+    struct resultMessage {
+        var code: Int32
+        var string: String
+        var message: String {
+            return (String(code) + " :" + string)
+        }
     }
     
-    var resultString: String {
-        let resultCString =  String.init(cString: sqlite3_errmsg(db)!)
-        return resultCString
-     }
-
-    
+    var currentResult: resultMessage {
+        let errorCode = sqlite3_errcode(db)
+        let errorString =  String.init(cString: sqlite3_errmsg(db)!)
+        return resultMessage(code: errorCode, string: errorString)
+    }
+ 
     private init(database: OpaquePointer) {
         self.db = database
     }
