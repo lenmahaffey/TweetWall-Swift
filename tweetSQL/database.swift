@@ -64,10 +64,7 @@ class SQliteDB {
         if sqlite3_prepare(db, sql, -1, &statement, nil) == SQLITE_OK{
             return statement!
         } else  {
-            print("Error preparing SQL statement. Check SQL text")
-            print(sql)
-            print(self.resultCode, ": ", self.resultString)
-            return nil
+            throw SQLiteError.prepareStatment(message: "Error preparing SQL statement. Check SQL text \n \(sql) \n \(self.currentResult.message)\n")
         }
     }
     
