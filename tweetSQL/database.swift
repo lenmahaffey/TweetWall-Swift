@@ -68,7 +68,7 @@ class SQliteDB {
         }
     }
     
-    func executeSQL (SQLStatement: OpaquePointer) -> Bool{
+    func executeSQL(SQLStatement: OpaquePointer) throws -> resultMessage? {
         if sqlite3_step(SQLStatement) == SQLITE_DONE {
             sqlite3_finalize(SQLStatement)
             return true
