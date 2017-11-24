@@ -227,25 +227,6 @@ class SQliteDB {
             return false
         }
     }
+    */
 
-    func createTweet(hashtag: String, id: String) -> Bool{
-        if self.insertSQL(table: hashtag, column: "id", value: id) == true {
-            print ("Tweet created in database \n")
-            return true;
-        } else {
-            print ("Tweet not created in database \n")
-            return false;
-        }
-    }
-    
-    func updateTweet(hashtag: String, column: String, value: String, tweet: String) {
-        if self.updateSQL(table: hashtag, column: column, value: value, id: tweet) == true {
-            print ("Tweet updated\n")
-        } else {
-            print ("Tweet not updated\n")
-        }
-    }
 }
-
-
-
