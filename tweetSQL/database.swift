@@ -55,7 +55,7 @@ class SQliteDB {
         if sqlite3_errmsg(db!) != nil {
             throw SQLiteError.openDatabase(message: String(describing: sqlite3_errmsg(db)))
         } else {
-            throw SQLiteError.openDatabase(message: "Unknown Error")
+            throw SQLiteError.openDatabase(message: "Unknown Error\n")
         }
     }
 
