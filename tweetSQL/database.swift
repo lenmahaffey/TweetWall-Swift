@@ -71,40 +71,65 @@ class SQliteDB {
     func executeSQL(SQLStatement: OpaquePointer) throws -> resultMessage? {
         if sqlite3_step(SQLStatement) == SQLITE_DONE {
             sqlite3_finalize(SQLStatement)
-            return true
+            let result = self.currentResult
+            return result
         } else {
-            print(self.resultCode, ": ", self.resultString)
-            sqlite3_finalize(SQLStatement)
-            return false
+            throw SQLiteError.step(message: "Error executing SQL statement.\n \(self.currentResult.message)\n")
         }
     }
     
-    func insertSQL(table: String, column: String, value: String) -> Bool {
-        let SQLString = "INSERT INTO \(table) (\(column)) VALUES (\(value));"
-        guard let SQLStatement = self.prepare(sql: SQLString) else {
-            return false
+    func insertSQL(table: String, column: String, value: String) -> resultMessage? {
+        let SQLString = """
+        INSERT INTO \(table) (\(column))
+        VALUES (\(value))
+        """
+        do {
+            let SQLStatement = try self.prepare(sql: SQLString)
+            let SQLResult = try self.executeSQL(SQLStatement: SQLStatement)
+            return SQLResult
         }
-        if self.executeSQL(SQLStatement: SQLStatement) == true {
-            return true
-        } else {
-            print (SQLString)
-            return false
+        catch SQLiteError.prepareStatment(let message) {
+            print(message)
+            let result = currentResult
+            return result
+        }
+        catch SQLiteError.step(let message) {
+            print(message)
+            let result = currentResult
+            return result
+        }
+        catch {
+            print ("Function insertSQL: Unknown error\n \(self.currentResult.message)\n")
+            let result = currentResult
+            return result
         }
     }
     
-    func updateSQL(table: String, column: String, value: String, id: String) -> Bool {
+    func updateSQL(table: String, column: String, value: String, id: String) -> resultMessage? {
         let SQLString = """
         UPDATE \(table)
         SET \(column) = '\(value)'
         WHERE id = \(id);
         """
-        guard let SQLStatement = self.prepare(sql: SQLString) else {
-            return false
+        do {
+            let SQLStatement = try self.prepare(sql: SQLString)
+            let SQLResult = try self.executeSQL(SQLStatement: SQLStatement)
+            return SQLResult
         }
-        if self.executeSQL(SQLStatement: SQLStatement) == true {
-            return true
-        } else {
-            return false
+        catch SQLiteError.prepareStatment(let message) {
+            print(message)
+            let result = currentResult
+            return result
+        }
+        catch SQLiteError.step(let message) {
+            print(message)
+            let result = currentResult
+            return result
+        }
+        catch {
+            print ("Function updateSQL: Unknown error\n \(self.currentResult.message)\n")
+            let result = currentResult
+            return result
         }
     }
     
@@ -124,14 +149,26 @@ class SQliteDB {
         truncated INT,
         user INT);
         """
-        guard let statement = self.prepare(sql: SQLString) else {
-            return false
+        do {
+            let SQLStatement = try self.prepare(sql: SQLString)
+            let SQLResult = try self.executeSQL(SQLStatement: SQLStatement)
+            return SQLResult
         }
-        guard self.executeSQL(SQLStatement: statement) == true else {
-            print ("Failed to create table for \(tableName)")
-            return false
+        catch SQLiteError.prepareStatment(let message) {
+            print(message)
+            let result = currentResult
+            return result
         }
-        return true
+        catch SQLiteError.step(let message) {
+            print(message)
+            let result = currentResult
+            return result
+        }
+        catch {
+            print ("Function createTweetTable: Unknown error\n \(self.currentResult.message)\n")
+            let result = currentResult
+            return result
+        }
     }
     
     func checkTable(tableName: String) -> Bool {
