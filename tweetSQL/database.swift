@@ -12,7 +12,6 @@ enum SQLiteError: Error {
     case openDatabase(message: String)
     case prepareStatment(message: String)
     case step(message: String)
-    case bind(message: String)
 }
 
 class SQliteDB {
@@ -42,7 +41,6 @@ class SQliteDB {
         var db: OpaquePointer? = nil
         let dbPath = Bundle.main.path(forResource: "tweetSQL", ofType:"db", inDirectory: "Resources")
         if sqlite3_open(dbPath, &db) == SQLITE_OK {
-            //print("Database Opened")
             return SQliteDB(database: db!)
         } else {
             defer {
